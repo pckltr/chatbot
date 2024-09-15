@@ -1,0 +1,86 @@
+@import "../colors.css";
+
+.chatInner {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem 1rem;
+  color: var(--darker);
+  flex: 1;
+}
+
+.chatInner::before {
+  content: "";
+  margin-top: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reply {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+.botReply {
+  margin-bottom: 0.5rem;
+  width: 80%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.replyInner {
+  background-color: var(--primary-lighter);
+  border-radius: 8px 8px 8px 0px;
+  flex: 1;
+}
+
+.botReply p {
+  padding: 0 1rem;
+}
+
+.answerOptions li {
+  background-color: var(--lighter);
+  margin: 0 2px 2px 2px;
+  text-align: center;
+  line-height: 3rem;
+}
+
+.answerOptions li:last-child {
+  border-radius: 0 0 7px 0;
+}
+
+.userReply {
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.userReply p {
+  padding: 0 1rem;
+  margin: 0;
+}
+.userReply .replyInner {
+  border-radius: 8px 8px 0px 8px;
+  background-color: var(--light);
+  padding: 1rem 0;
+}
+
+.botReply .fa-robot {
+  color: var(--primary);
+  margin-right: 0.5rem;
+  opacity: 0.6;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  color: var(--primary);
+}
