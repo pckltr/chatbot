@@ -39,6 +39,7 @@ function App() {
 
   useEffect(() => {
     showMainMenu();
+    setChatMinimized(false);
   }, [showMainMenu]);
 
   const handleExchange = useCallback((exchange: StockExchange) => {
