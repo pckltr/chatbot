@@ -87,18 +87,19 @@ function App() {
           exchange.stockExchange.toLowerCase() === optionNameLowerCase
       );
 
-      if (optionNameLowerCase === "main menu") {
-        showMainMenu();
-      } else if (optionNameLowerCase === "go back") {
-        if (currentMenuLevel) {
-          handleOptionSelect(currentMenuLevel);
-        } else {
+      switch (optionNameLowerCase) {
+        case "main menu":
           showMainMenu();
-        }
-      } else if (exchange) {
-        handleExchange(exchange);
-      } else {
-        handleStock(optionName);
+          break;
+        case "go back":
+          if (currentMenuLevel) {
+            handleOptionSelect(currentMenuLevel);
+          } else showMainMenu();
+          break;
+        default:
+          if (exchange) {
+            handleExchange(exchange);
+          } else handleStock(optionName);
       }
 
       inputRef.current?.focus();
@@ -146,6 +147,9 @@ function App() {
   return (
     <>
       <h1>LSEG chatbot example</h1>
+      <a href="https://github.com/pckltr/chatbot" target="_blank">
+        https://github.com/pckltr/chatbot
+      </a>
       <div className={`chatWrapper ${chatMinimized ? "minimized" : ""}`}>
         <div className="chatTitle">
           <span>
